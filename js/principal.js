@@ -14,9 +14,9 @@ var peso = tdPeso.textContent;
 var tdAltura = paciente.querySelector(".info-altura");
 var altura = tdAltura.textContent;
 
-console.log(altura);
-console.log(peso);
-
 var imc = peso / (altura * altura);
 
-console.log(imc);
+//Preenchendo o calculo do IMC na tabela, campo IMC
+
+var calcImc = document.querySelector(".info-imc");
+calcImc.textContent = imc;
