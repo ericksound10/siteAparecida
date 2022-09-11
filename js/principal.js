@@ -2,41 +2,53 @@ var titulo = document.querySelector(".titulo"); //Usando a função QuerySelecto
 
 titulo.textContent = "Nutricionista";
 
-//Para caucular o IMC foi criado a variavel paciente para extrair a informação do ID 'primeiro-paciente'
-//Foi criado as variaveis de 'peso' e 'altura' com o conteúdo do peso e altura do primeiro paciente.
-//Foi criado a variavel imc para armazenar o calculo de peso /peso / (altura * altura)
+//trocando a querySelector por querySelectorAll para ter acesso a todos os pacientes, pois a querySelector retorna somente 1 paciente.
 
-var paciente = document.querySelector("#primeiro-paciente");
+var pacientes = document.querySelectorAll(".paciente");
 
-var tdPeso = paciente.querySelector(".info-peso");
-var peso = tdPeso.textContent;
+console.log(pacientes);
 
-var tdAltura = paciente.querySelector(".info-altura");
-var altura = tdAltura.textContent;
+//criando for para calcular IMC de todos os pacientes
 
-//Validação do peso, verificação se é menor que 0 ou maior que 999
+for (var i = 0; i < pacientes.length; i++) {
 
-if (peso < 0 || peso > 999) {
-    console.log("Peso inválido!");
-    pesoValido = false;
-    tdPeso.textContent = "Peso inválido!";
+    var paciente = pacientes[i];
+
+    var tdPeso = paciente.querySelector(".info-peso");
+    var peso = tdPeso.textContent;
+
+    var tdAltura = paciente.querySelector(".info-altura");
+    var altura = tdAltura.textContent;
+
+    var calcImc = paciente.querySelector(".info-imc");
+
+    var pesoValido = true;
+    var alturaValida = true;
+
+    //Validação do peso, verificação se é menor ou igual a 0 ou maior ou igual a 700.
+
+    if (peso <= 0 || peso >= 700) {
+        console.log("Peso inválido!");
+        pesoValido = false;
+        tdPeso.textContent = "Peso inválido!";
+    }
+
+    //Validação da Altura, verificação se é menor que 0 ou maior que 3.
+
+    if (altura <= 0 || altura >= 3) {
+        console.log("Altura inválida");
+        alturaValida = false;
+        tdAltura.textContent = "Altura inválida!"; //Adicionando informação no campo visivel para usuário
+    }
+
+    if (pesoValido && alturaValida) {
+        var imc = peso / (altura * altura);
+
+        //Preenchendo o calculo do IMC na tabela, campo IMC.
+        calcImc.textContent = imc.toFixed(2); //limitando as casas decimais para 2 com a função toFixed(2).
+
+    }
 }
 
-//Validação da Alturea, verificação se é menor que 0 ou maior que 5
 
-if (altura < 0 || altura > 5) {
-    console.log("Altura inválida");
-    alturaValida = false;
-    tdAltura.textContent = "Altura inválida!"; //Adicionando informação no campo visivel para usuário
-}
-
-else {
-    var imc = peso / (altura * altura);
-
-//Preenchendo o calculo do IMC na tabela, campo IMC
-
-var calcImc = document.querySelector(".info-imc");
-calcImc.textContent = imc;
-
-}
 
