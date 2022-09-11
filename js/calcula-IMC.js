@@ -44,10 +44,21 @@ for (var i = 0; i < pacientes.length; i++) {
     }
 
     if (pesoValido && alturaValida) {
-        var imc = peso / (altura * altura);
-
+        var imc = calculaImc(peso,altura);
         //Preenchendo o calculo do IMC na tabela, campo IMC.
-        calcImc.textContent = imc.toFixed(2); //limitando as casas decimais para 2 com a função toFixed(2).
+        calcImc.textContent = imc; //limitando as casas decimais para 2 com a função toFixed(2).
 
     }
+}
+
+//Criando função para calcular o IMC e otimizar o código.
+
+function calculaImc(peso, altura) {
+
+    var imc = 0;
+
+    imc = peso / (altura * altura);
+
+    return imc.toFixed(2);
+    
 }
