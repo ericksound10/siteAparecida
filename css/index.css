@@ -132,3 +132,9 @@ button[disabled=disabled], button:disabled {
 .campo-invalido{
 	border: 1px solid red;
 }
+
+/*Adicionando uma classe para ajustar a cor no JavaScript*/
+.paciente-invalido{
+	color: red;
+	font-weight: bold; 
+}

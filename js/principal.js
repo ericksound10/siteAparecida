@@ -31,6 +31,7 @@ for (var i = 0; i < pacientes.length; i++) {
         console.log("Peso inválido!");
         pesoValido = false;
         tdPeso.textContent = "Peso inválido!";
+        paciente.classList.add("paciente-invalido"); //Alterando cor da fonte para faciliar para o usuário localizar o erro.
     }
 
     //Validação da Altura, verificação se é menor que 0 ou maior que 3.
@@ -39,6 +40,7 @@ for (var i = 0; i < pacientes.length; i++) {
         console.log("Altura inválida");
         alturaValida = false;
         tdAltura.textContent = "Altura inválida!"; //Adicionando informação no campo visivel para usuário
+        paciente.classList.add("paciente-invalido"); //Alterando cor da fonte para faciliar para o usuário localizar o erro.
     }
 
     if (pesoValido && alturaValida) {
