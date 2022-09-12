@@ -12,6 +12,11 @@ botaoAdicionar.addEventListener("click", function(event){
     //Criando a TR no HTML
     
     var pacienteTr = montaTr(paciente);
+
+    if (!validaPaciente(paciente)){
+        console.log("Paciente inválido")
+        return;
+    }
     
     var tabela = document.querySelector("#tabela-pacientes");
 
@@ -53,16 +58,33 @@ function montaTr(paciente){
     pacienteTr.appendChild(montaTd(paciente.imc, "info-imc"));
 
     return pacienteTr;
-
-
 }
 
-function montaTd(dado, classe){
+function montaTd(dado, classe) {
     var td = document.createElement("td");
 
     td.classList.add(classe);
     td.textContent = dado;
 
     return td;
+}
 
+function validaPaciente(paciente) {
+    if (validaPeso(paciente.peso)) {
+        return true;
+
+    }
+    else {
+        return false;
+    }    
+}
+
+function validaPaciente(paciente) {
+    if (validaAltura(paciente.altura)) {
+        return true;
+
+    } else {
+        return false;
+    }
+    
 }

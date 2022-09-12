@@ -22,12 +22,12 @@ for (var i = 0; i < pacientes.length; i++) {
 
     var calcImc = paciente.querySelector(".info-imc");
 
-    var pesoValido = true;
-    var alturaValida = true;
+    var pesoValido = validaPeso(peso);
+    var alturaValida = validaAltura(altura);
 
     //Validação do peso, verificação se é menor ou igual a 0 ou maior ou igual a 700.
 
-    if (peso <= 0 || peso >= 700) {
+    if (!pesoValido) {
         console.log("Peso inválido!");
         pesoValido = false;
         tdPeso.textContent = "Peso inválido!";
@@ -36,7 +36,7 @@ for (var i = 0; i < pacientes.length; i++) {
 
     //Validação da Altura, verificação se é menor que 0 ou maior que 3.
 
-    if (altura <= 0 || altura >= 3) {
+    if (!alturaValida) {
         console.log("Altura inválida");
         alturaValida = false;
         tdAltura.textContent = "Altura inválida!"; //Adicionando informação no campo visivel para usuário
@@ -49,6 +49,27 @@ for (var i = 0; i < pacientes.length; i++) {
         calcImc.textContent = imc; //limitando as casas decimais para 2 com a função toFixed(2).
 
     }
+}
+
+function validaPeso(peso) {
+    if (peso >= 0 && peso <= 700) {
+        return true;        
+    } else {
+        return false;
+        
+    }
+    
+}
+
+function validaAltura(altura) {
+    if (altura >= 0 && altura <= 3.00) {
+        return true;
+        
+    } else {
+        return false;
+        
+    }
+    
 }
 
 //Criando função para calcular o IMC e otimizar o código.
