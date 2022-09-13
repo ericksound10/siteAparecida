@@ -125,6 +125,10 @@ button[disabled=disabled], button:disabled {
 
 }
 
+#titulo-form{
+	margin-top: 1em;
+}
+
 .adicionar-paciente{
     margin-top: 30px;
 }
@@ -147,4 +151,21 @@ button[disabled=disabled], button:disabled {
 .transicao-remover{
 	opacity: 0;
 	transition: 0.5s;
+}
+
+.filtroPaciente{
+	width: 230px;
+	padding: 7px;
+	margin: 1em 0;
+
+}
+
+.ocultaPaciente{
+	display: none;
+}
+
+#importar-paciente{
+	display: inline-block;
+	margin: 0 0 0 685px;
+	width: auto;
 }

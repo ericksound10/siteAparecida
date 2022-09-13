@@ -19,6 +19,10 @@
 		<main>
 			<section class="container">
 				<h2>Meus pacientes</h2>
+
+				<input type="text" class="filtroPaciente" placeholder="🔍Digite o nome">
+
+				<button id="importar-paciente" class="botao bto-principal">Importar Paciente</button>
 				<table>
 					<thead>
 						<tr>
@@ -76,9 +80,9 @@
 		<!-- Adicionando formulario de preenchimento -->
 		<section class="container">
 			<h2 id="titulo-form">Adicionar novo paciente</h2>
-			<ul id="mensagens-erro">
-				
-			</ul>
+
+			<ul id="mensagens-erro"></ul>
+
 			<form id="form-adiciona">
 					<div class="grupo">
 					<label for="nome">Nome:</label>
@@ -108,6 +112,7 @@
 		<script src="./js/calcula-IMC.js"></script> 
 		<script src="./js/formulario.js"></script>
 		<script src="./js/remover-paciente.js"></script>
+		<script src="./js/filtroPaciente.js"></script>
 
 	</body>
 </html>
